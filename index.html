@@ -61,6 +61,7 @@
     }
 
     function showPrimes(n) {
+      document.querySelector('.output').innerHTML = '';
       for (let i = 2; i <= n; i++) {
         if (findPrime(i) == true) {
           let output = document.querySelector('.output');
