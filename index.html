@@ -1,78 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Prime Numbers</title>
 </head>
+
 <body>
-<style>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: monospace;
+      background: #797f86;
+      color: #fff;
+    }
 
-html {
-  box-sizing: border-box;
-  font-family: monospace;
-  background: #797f86;
-  color: #fff;
-}
+    .container {
+      display: block;
+      max-width: 500px;
+      width: 100%;
+      margin: 50px auto;
+      padding: 50px;
+    }
 
-.container {
-  display: block;
-  max-width: 500px;
-  width: 100%;
-  margin: 50px auto;
-  padding: 50px;
-}
-
-@media (max-width: 700px) {
-  .container {
-    padding: 0px;
-    margin: 50px auto;
-  }
-}
-</style>
+    @media (max-width: 700px) {
+      .container {
+        padding: 0px;
+        margin: 50px auto;
+      }
+    }
+  </style>
 
   <div class="container">
     <h1>Find Prime Numbers</h1>
     <div class="input">
-    <input type="text" placeholder="Enter value to check"></input>
-    <button onclick="primeTime()">Show Primes</button>
+      <input type="text" placeholder="Enter value to check"></input>
+      <button onclick="primeTime()">Show Primes</button>
     </div>
 
     <div class="output">
     </div>
   </div>
 
-<script>
-
-function primeTime() {
-  let n = document.querySelector('input').value;
-  showPrimes(n);
-}
-
-function findPrime(n) {
-  let isPrime = true;
-  for (let i = 2; i < n - 1; i++) {
-    if (n % i == 0) {
-      isPrime = false;
+  <script>
+    function primeTime() {
+      let n = document.querySelector('input').value;
+      showPrimes(n);
     }
-  }
-  return isPrime;
-}
 
-function showPrimes(n) {
-  for (let i = 2; i < n - 2; i++) {
-    if (findPrime(i) == true) {
-      let container = document.querySelector('.output');
-      let para = document.createElement('p');
-      para.textContent = `${i} is prime.`
-      // console.log(`${i} is prime.`);
-      container.appendChild(para);
+    function findPrime(n) {
+      let isPrime = true;
+      for (let i = 2; i < n - 1; i++) {
+        if (n % i == 0) {
+          isPrime = false;
+        }
+      }
+      return isPrime;
     }
-  }
-}
 
-</script>
-  
+    function showPrimes(n) {
+      for (let i = 2; i <= n; i++) {
+        if (findPrime(i) == true) {
+          let output = document.querySelector('.output');
+          let para = document.createElement('p');
+          para.textContent = `${i} is prime.`
+          // console.log(`${i} is prime.`);
+          output.appendChild(para);
+        }
+      }
+    }
+  </script>
+
 </body>
+
 </html>
